@@ -79,8 +79,23 @@ public class UserController {
                 System.out.println("로그인 성공!");
                 return true;
             }
+
         } catch (Exception e) {
             throw new RuntimeException(e);
+        }
+    }
+    @GetMapping("/find/id")
+    public String findId(@RequestParam String name,
+                         @RequestParam String phone,
+                         @RequestParam String email) {
+        try {
+            UserEntity userEntity = userRepository.findByNameAndPhoneAndEmail(name, phone, email);
+            System.out.println(userEntity.getUserId());
+            return userEntity.getUserId();
+        } catch (NullPointerException e) {
+            String error = "입력하신 이름, 전화번호, 이메일로 가입한 계정이 없습니다.";
+            System.out.println(error);
+            return error;
         }
     }
 }

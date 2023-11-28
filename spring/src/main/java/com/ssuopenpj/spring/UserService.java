@@ -34,4 +34,18 @@ public class UserService {
 
         return user;
     }
+
+    public UserDTO toDTO(UserEntity userEntity) {
+        UserDTO user = null;
+        user.setUserId(userEntity.getUserId());
+        user.setPw(userEntity.getPw());
+        user.setName(userEntity.getName());
+        user.setPhone(userEntity.getPhone());
+        user.setEmail(userEntity.getEmail());
+        user.setTravelDestination(userEntity.getTravelDestination());
+        user.setStyle(userEntity.getStyle());
+        user.setPrivacy(userEntity.getPrivacy());
+        user.setRole(userEntity.getRole());
+        return user;
+    }
 }
