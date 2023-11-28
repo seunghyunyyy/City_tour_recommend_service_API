@@ -58,7 +58,7 @@ public class UserService {
     public Boolean signIn(SignIn user) {
         UserEntity userEntity;
         String userId = user.getUserId();
-        String userPw = user.getPw();
+        String userPw = user.getPassword();
         try {
             userRepository.getByUserId(userId);
         } catch (EntityNotFoundException e) {
@@ -224,6 +224,22 @@ public class UserService {
         } catch (NullPointerException e) {
             System.out.println("없는 계정");
             return null;
+        }
+    }
+    public Boolean withdrawalAccount(SignIn user) {
+        try {
+            UserEntity userEntity = userRepository.findByUserId(user.getUserId());
+            if(!Objects.equals(userEntity.getPw(), EncryptionUtils.SHA256(user.getUserId(), user.getPassword()))) {
+                System.out.println("회원 탈퇴 실패 : 비밀번호 불일치");
+                return false;
+            } else {
+                userRepository.delete(userEntity);
+                System.out.println("회원 탈퇴 성공");
+                return true;
+            }
+        } catch (NullPointerException e) {
+            System.out.println("없는 계정");
+            return false;
         }
     }
 }
