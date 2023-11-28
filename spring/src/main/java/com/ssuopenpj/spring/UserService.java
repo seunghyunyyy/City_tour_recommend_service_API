@@ -30,7 +30,7 @@ public class UserService {
             System.out.println("아이디 중복");
             return null;
         }
-        if (!Objects.equals(user.getPw1(), user.getPw2())) {
+        if (!Objects.equals(user.getPassword().getPw1(), user.getPassword().getPw2())) {
             System.out.println("패스워드 불일치");
             return null;
         }
@@ -47,7 +47,7 @@ public class UserService {
             return null;
         }
 
-        UserDTO userDTO = create(user.getUserId(), user.getPw1(), user.getName(), user.getPhone(), user.getEmail(),
+        UserDTO userDTO = create(user.getUserId(), user.getPassword().getPw1(), user.getName(), user.getPhone(), user.getEmail(),
                 user.getTravelDestination(), user.getStyle(), user.getPrivacy());
 
         printDTO(userDTO);
