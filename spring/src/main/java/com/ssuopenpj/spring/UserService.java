@@ -106,11 +106,12 @@ public class UserService {
         return user;
     }
 
-    public void findPassword(String userId, String phone) {
+    public String findPassword(String userId, String phone) {
         try {
-            userRepository.getByUserIdAndPhone(userId, phone);
+            return userRepository.findByUserIdAndPhone(userId, phone).getPw();
         } catch (NullPointerException e) {
             System.out.println("없는 계정");
+            return null;
         }
     }
 
