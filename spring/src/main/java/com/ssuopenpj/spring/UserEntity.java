@@ -1,0 +1,39 @@
+package com.ssuopenpj.spring;
+
+import jakarta.persistence.*;
+import lombok.*;
+
+@ToString
+@Getter
+@NoArgsConstructor
+@Entity
+public class UserEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column(unique = true)
+    private String userId;
+    private String pw;
+    private String name;
+    @Column(unique = true)
+    private String phone;
+    @Column(unique = true)
+    private String email;
+    private String travelDestination;
+    private String style;
+    private Boolean privacy;
+    private UserRole role;
+
+    @Builder
+    public UserEntity(String userId, String pw, String name, String phone, String email, String travelDestination, String style, Boolean privacy, UserRole role) {
+        this.userId = userId;
+        this.pw = pw;
+        this.name = name;
+        this.phone = phone;
+        this.email = email;
+        this.travelDestination = travelDestination;
+        this.style = style;
+        this.privacy = privacy;
+        this.role = role;
+    }
+}
