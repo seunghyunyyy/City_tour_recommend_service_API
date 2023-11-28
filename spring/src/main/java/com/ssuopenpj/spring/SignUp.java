@@ -7,8 +7,7 @@ import lombok.Setter;
 @Setter
 public class SignUp {
     private String userId;
-    private String pw1;
-    private String pw2;
+    private Password password;
     private String name;
     private String phone;
     private String email;

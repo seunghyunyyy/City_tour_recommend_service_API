@@ -1,13 +1,9 @@
 package com.ssuopenpj.spring;
 
-import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Objects;
 
 @Slf4j
 @Validated
@@ -34,8 +30,8 @@ public class UserController {
         userService.findPassword(userId, phone);
     }
     @PatchMapping("/{userId}/update/password")
-    public UserDTO patchPassword(@PathVariable(name = "userId") String userId, @RequestBody PasswordChange user) {
-        return userService.patchPassword(userId, user.getPw1(), user.getPw2());
+    public UserDTO patchPassword(@PathVariable(name = "userId") String userId, @RequestBody Password password) {
+        return userService.patchPassword(userId, password.getPw1(), password.getPw2());
     }
     @PatchMapping("/{userId}/update/info")
     public UserDTO patchInfo(@PathVariable(name = "userId") String userId, @RequestBody UserInfo info) {
