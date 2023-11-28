@@ -26,8 +26,8 @@ public class UserController {
         return userService.findId(name, phone, email);
     }
     @GetMapping("/find/password")
-    public void findPassword(@RequestParam String userId, @RequestParam String phone) {
-        userService.findPassword(userId, phone);
+    public String findPassword(@RequestParam String userId, @RequestParam String phone) {
+        return userService.findPassword(userId, phone);
     }
     @PatchMapping("/{userId}/update/password")
     public UserDTO patchPassword(@PathVariable(name = "userId") String userId, @RequestBody Password password) {
