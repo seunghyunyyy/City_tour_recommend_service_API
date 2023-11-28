@@ -38,4 +38,8 @@ public class UserController {
         return userService.patchInfo(userId, info.getPassword().getPw1(), info.getPassword().getPw2(), info.getName(),
                                      info.getPhone(), info.getEmail(), info.getTravelDestination(), info.getStyle());
     }
+    @DeleteMapping("/withdrawal")
+    public Boolean withdrawalAccount(@RequestBody SignIn user) {
+        return userService.withdrawalAccount(user);
+    }
 }
