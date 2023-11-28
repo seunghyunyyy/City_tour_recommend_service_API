@@ -153,6 +153,14 @@ public class UserService {
     }
 
     public UserDTO patchInfo(String userId, String pw1, String pw2, String newName, String newPhone, String newEmail, String newTravelDestination, String newStyle) {
+        if (userRepository.getByPhone(newPhone) != null && !Objects.equals(userId, userRepository.findByPhone(newPhone).getUserId())) {
+            System.out.println("전화번호 중복");
+            return null;
+        }
+        if (userRepository.getByEmail(newEmail) != null && !Objects.equals(userId, userRepository.findByEmail(newEmail).getUserId())) {
+            System.out.println("이메일 중복");
+            return null;
+        }
         try {
             UserEntity userEntity = userRepository.findByUserId(userId);
 
