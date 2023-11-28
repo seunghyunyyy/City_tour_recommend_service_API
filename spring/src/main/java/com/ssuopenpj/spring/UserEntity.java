@@ -36,4 +36,26 @@ public class UserEntity {
         this.privacy = privacy;
         this.role = role;
     }
+
+    public void updatePassword(String newPw) {
+        this.pw = newPw;
+    }
+    public void updateName(String newName) {
+        this.name = newName;
+    }
+    public void updatePhone(String newPhone) {
+        this.phone = newPhone;
+    }
+    public void updateEmail(String newEmail) {
+        this.email = newEmail;
+    }
+    public void updateTravelDestination(String newTravelDestination) {
+        this.travelDestination = newTravelDestination;
+    }
+    public void updateStyle(String newStyle) {
+        this.style = newStyle;
+    }
+    public void updateRole(UserRole newRole) {
+        this.role = newRole;
+    }
 }
