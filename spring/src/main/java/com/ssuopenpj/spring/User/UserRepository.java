@@ -1,4 +1,4 @@
-package com.ssuopenpj.spring;
+package com.ssuopenpj.spring.User;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

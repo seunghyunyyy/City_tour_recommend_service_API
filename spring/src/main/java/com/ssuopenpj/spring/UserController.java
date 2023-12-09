@@ -1,11 +1,10 @@
 package com.ssuopenpj.spring;
 
+import com.ssuopenpj.spring.User.*;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-@Slf4j
 @Validated
 @RestController
 @RequiredArgsConstructor
@@ -17,9 +16,10 @@ public class UserController {
     public UserDTO signUp(@RequestBody SignUp user) {
         return userService.signUp(user);
     }
+
     @PostMapping("/signIn")
     public Boolean signIn(@RequestBody SignIn user) {
-        return userService.signIn(user);
+      return userService.signIn(user);
     }
     @GetMapping("/find/id")
     public String findId(@RequestParam String name, @RequestParam String phone, @RequestParam String email) {

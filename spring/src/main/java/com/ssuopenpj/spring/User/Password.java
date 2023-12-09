@@ -1,4 +1,4 @@
-package com.ssuopenpj.spring;
+package com.ssuopenpj.spring.User;
 
 import lombok.Getter;
 import lombok.Setter;

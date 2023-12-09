@@ -1,4 +1,4 @@
-package com.ssuopenpj.spring;
+package com.ssuopenpj.spring.User;
 
 import jakarta.persistence.*;
 import lombok.*;

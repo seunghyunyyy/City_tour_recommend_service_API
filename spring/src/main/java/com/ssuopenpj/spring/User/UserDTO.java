@@ -1,12 +1,9 @@
-package com.ssuopenpj.spring;
+package com.ssuopenpj.spring.User;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.apache.catalina.User;
-import org.apache.catalina.security.SecurityConfig;
-import org.springframework.beans.factory.annotation.Autowired;
 
 @Getter
 @Setter
