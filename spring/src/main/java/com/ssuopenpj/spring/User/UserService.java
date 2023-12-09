@@ -1,6 +1,5 @@
-package com.ssuopenpj.spring;
+package com.ssuopenpj.spring.User;
 
-import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -54,7 +53,6 @@ public class UserService {
 
         return userDTO;
     }
-
     public Boolean signIn(SignIn user) {
         UserEntity userEntity;
         String userId = user.getUserId();
@@ -68,7 +66,8 @@ public class UserService {
 
         try {
             userEntity = userRepository.findByUserId(userId);
-
+            if (userEntity == null)
+                return false;
             if (!Objects.equals(userEntity.getPw(), EncryptionUtils.SHA256(userId, userPw))) {
                 System.out.println("비밀번호 불일치");
                 return false;
@@ -77,7 +76,7 @@ public class UserService {
                 return true;
             }
 
-        } catch (Exception e) {
+        } catch (NullPointerException e) {
             throw new RuntimeException(e);
         }
     }
