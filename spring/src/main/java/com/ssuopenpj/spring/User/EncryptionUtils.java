@@ -1,4 +1,4 @@
-package com.ssuopenpj.spring;
+package com.ssuopenpj.spring.User;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
