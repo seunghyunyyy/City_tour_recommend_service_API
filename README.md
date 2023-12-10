@@ -1,4 +1,11 @@
 # 지역 기반 관광지 추천 서비스 API
+### 목차
+1. [개요](https://github.com/seunghyunyyy/ssu_open_pj#개요)
+2. [사용한 오픈소스 및 API](https://github.com/seunghyunyyy/ssu_open_pj#사용한-오픈소스-및-api)
+3. [개발 환경](https://github.com/seunghyunyyy/ssu_open_pj#개발-환경)
+4. [데이터베이스 구조](https://github.com/seunghyunyyy/ssu_open_pj#데이터베이스-구조)
+5. [REST-API](https://github.com/seunghyunyyy/ssu_open_pj#rest-api)
+## 
 ### 개요
 * 사용자가 원하는 국내 여행지와 추천 개수를 입력하면 입력한 도시해서 입력한 개수만큼 관광지를 추천해주는 서비스.
 * 회원가입, 로그인, 계정 정보 수정, 계정 탈퇴, 계정 찾기, 비밀번호 재설정, 도시명으로 관광지 불러오기, 도시의 날씨 정보 구하기, 관광지 추천받기, 추천받은 관광지 지도에 표시하기 등의 기능이 있음.
@@ -17,7 +24,9 @@
 * IntelliJ IDEA 2023.2.5 Ultimate Edition
 * MySQL 8.0.34 Community
 ##
-
+### 데이터베이스 구조
+![스크린샷 2023-12-11 오전 12 29 43](https://github.com/seunghyunyyy/ssu_open_pj/assets/99075653/42c16ed3-4537-43fc-a83c-32379e5c48f9)
+##
 ## REST-API
 1. [POST /user/v1/signUP](https://github.com/seunghyunyyy/ssu_open_pj#post-userv1signup--회원가입)
 2. [POST /user/v1/signIn](https://github.com/seunghyunyyy/ssu_open_pj#post-userv1signin--로그인)
