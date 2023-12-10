@@ -24,6 +24,8 @@ public class MapController {
         JSONArray recommend = (JSONArray) result.get("recommend");
         JSONArray jsonArray = new JSONArray();
 
+        //System.out.println("map weather : " + weather.toJSONString());
+
         String title, lat, lng;
         Double temp, temp_min, feels_like, temp_max;
         Long humidity, pressure;
@@ -44,14 +46,53 @@ public class MapController {
             jsonArray.add(tmp1);
         }
 
+        int level;
+        double minLat = Double.MAX_VALUE;
+        double maxLat = Double.MIN_VALUE;
+        double minLng = Double.MAX_VALUE;
+        double maxLng = Double.MIN_VALUE;
+
+        // 각 요소에 대해 반복
         for (int i = 0; i < jsonArray.size(); i++) {
             JSONObject tmp = (JSONObject) jsonArray.get(i);
-            avgLat += Double.parseDouble((String)tmp.get("lat"));
-            avgLng += Double.parseDouble((String)tmp.get("lng"));
-        }
 
-        avgLat /= Integer.parseInt(num);
-        avgLng /= Integer.parseInt(num);
+            Double tmpLat = Double.parseDouble((String)tmp.get("lat"));
+            Double tmpLng = Double.parseDouble((String)tmp.get("lng"));
+
+            // 최대, 최소 값 업데이트
+            if (tmpLat < minLat) minLat = tmpLat;
+            if (tmpLat > maxLat) maxLat = tmpLat;
+            if (tmpLng < minLng) minLng = tmpLng;
+            if (tmpLng > maxLng) maxLng = tmpLng;
+        }
+        avgLat = (minLat + maxLat) / 2;
+        avgLng = (minLng + maxLng) / 2;
+
+        /*System.out.println("avgLat : " + avgLat);
+        System.out.println("avgLng : " + avgLng);
+        System.out.println("minLat : " + minLat);
+        System.out.println("maxLat : " + maxLat);
+        System.out.println("minLng : " + minLng);
+        System.out.println("maxLng : " + minLng);*/
+
+        Double tmpLat = maxLat - minLat;
+
+        if (tmpLat < 0.01875) {
+            level = 5;
+        } else if (0.01875 <= tmpLat && tmpLat < 0.0375) {
+            level = 6;
+        } else if (0.0375 <= tmpLat && tmpLat < 0.075) {
+            level = 7;
+        } else if (0.075 <= tmpLat && tmpLat < 0.15) {
+            level = 8;
+        } else if (0.15 <= tmpLat && tmpLat < 0.3) {
+            level = 9;
+        } else if (0.3 <= tmpLat && tmpLat < 0.6) {
+            level = 10;
+        } else if (0.6 <= tmpLat && tmpLat < 1.2){
+            level = 11;
+        } else
+            level = 12;
 
         temp = (Double) weather.get("temp");
         temp_min = (Double) weather.get("temp_min");
@@ -61,6 +102,7 @@ public class MapController {
         humidity = (Long) weather.get("humidity");
         description = (String) weather.get("description");
 
+        model.addAttribute("level", level);
         model.addAttribute("temp", temp);
         model.addAttribute("temp_min", temp_min);
         model.addAttribute("temp_max", temp_max);
