@@ -17,6 +17,18 @@
 * IntelliJ IDEA
 
 ## REST-API
+1. [POST /user/v1/signUP](https://github.com/seunghyunyyy/ssu_open_pj#post-userv1signup--회원가입)
+2. [POST /user/v1/signIn](https://github.com/seunghyunyyy/ssu_open_pj#post-userv1signin--로그인)
+3. [PATCH /user/v1/{userId}/update/password](https://github.com/seunghyunyyy/ssu_open_pj#patch-userv1useridupdatepassword--비밀번호-변경)
+4. [PATCH /user/v1/{userId}/update/info](https://github.com/seunghyunyyy/ssu_open_pj#patch-userv1useridupdateinfo--회원-정보-변경)
+5. [GET /user/v1/find/id](https://github.com/seunghyunyyy/ssu_open_pj#get-userv1findid--회원-id-찾기)
+6. [GET /user/v1/find/password](https://github.com/seunghyunyyy/ssu_open_pj#get-userv1findpassword--회원-password-찾기)
+7. [DELETE /user/v1/withdrawal](https://github.com/seunghyunyyy/ssu_open_pj#delete-userv1withdrawal--회원-정보-삭제)
+8. [GET /api/v1/searchKeyword](https://github.com/seunghyunyyy/ssu_open_pj#get-apiv1searchkeyword--도시별-관광지-불러오기)
+9. [GET /api/v1/weather](https://github.com/seunghyunyyy/ssu_open_pj#get-apiv1weather--도시-날씨-정보-불러오기)
+10. [GET /api/v1/chat](https://github.com/seunghyunyyy/ssu_open_pj#get-apiv1chat--chat-gpt)
+11. [GET /api/v1/recommend](https://github.com/seunghyunyyy/ssu_open_pj#get-apiv1recommend--관광지-추천)
+##
 ### POST /user/v1/signUP : 회원가입
   * Request Body JSON에 동일한 두 개의 비밀번호를 입력. 불일치 시 회원가입 실패.
   * role은 USER와 ADMIN 둘 중 하나만 입력 가능.
