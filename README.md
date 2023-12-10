@@ -3,7 +3,7 @@
 1. [개요](https://github.com/seunghyunyyy/ssu_open_pj#개요)
 2. [사용한 오픈소스 및 API](https://github.com/seunghyunyyy/ssu_open_pj#사용한-오픈소스-및-api)
 3. [개발 환경](https://github.com/seunghyunyyy/ssu_open_pj#개발-환경)
-4. [데이터베이스 구조](https://github.com/seunghyunyyy/ssu_open_pj#데이터베이스-구조)
+4. [데이터베이스 구조 (User Entity)](https://github.com/seunghyunyyy/ssu_open_pj#데이터베이스-구조-user-entity)
 5. [REST-API](https://github.com/seunghyunyyy/ssu_open_pj#rest-api)
 ## 
 ### 개요
@@ -24,7 +24,7 @@
 * IntelliJ IDEA 2023.2.5 Ultimate Edition
 * MySQL 8.0.34 Community
 ##
-### 데이터베이스 구조
+### 데이터베이스 구조 (User Entity)
 ![스크린샷 2023-12-11 오전 12 29 43](https://github.com/seunghyunyyy/ssu_open_pj/assets/99075653/42c16ed3-4537-43fc-a83c-32379e5c48f9)
 ##
 ## REST-API
