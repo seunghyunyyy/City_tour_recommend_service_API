@@ -3,65 +3,18 @@
 <head>
     <meta charset="utf-8"/>
     <title>SSU OpenSource Project</title>
-    <style>
-        .weather-container {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .weather-item {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-        }
-
-        .weather-item p {
-            margin-right: 10px; /* 라벨과 값 사이의 간격 조정 */
-        }
-    </style>
 </head>
 <body>
-<div class="weather-container">
-    <div class="weather-item">
-        <p>도시 :</p>
-        <div id="city"></div>
-    </div>
-    <div class="weather-item">
-        <p>날씨 :</p>
-        <div id="description"></div>
-    </div>
-    <div class="weather-item">
-        <p>현재 온도 :</p>
-        <div id="temp"></div>
-        <p>°C</p>
-    </div>
-    <div class="weather-item">
-        <p>최저 온도 :</p>
-        <div id="temp_min"></div>
-        <p>°C</p>
-    </div>
-    <div class="weather-item">
-        <p>최고 온도 :</p>
-        <div id="temp_max"></div>
-        <p>°C</p>
-    </div>
-    <div class="weather-item">
-        <p>체감 온도 :</p>
-        <div id="feels_like"></div>
-        <p>°C</p>
-    </div>
-    <div class="weather-item">
-        <p>기압 :</p>
-        <div id="pressure"></div>
-        <p>hPa</p>
-    </div>
-    <div class="weather-item">
-        <p>습도 :</p>
-        <div id="humidity"></div>
-        <p>%</p>
-    </div>
+<div class="weather">
+    <div>도시 : <span id="city"></span></div>
+    <div>날씨 : <span id="description"></span></div>
+    <div>현재 온도 : <span id="temp"></span>°C</div>
+    <div>최저 온도 : <span id="temp_min"></span>°C</div>
+    <div>최고 온도 : <span id="temp_max"></span>°C</div>
+    <div>체감 온도 : <span id="feels_like"></span>°C</div>
+    <div>기압 : <span id="pressure"></span>hPa</div>
+    <div>습도 : <span id="humidity"></span>%</div>
 </div>
-<div id = "weather"></div>
 <div id="map" style="width:1156px;height:650px;"></div>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c0f1abe1ac2429d9e0e0d1a353bab0f6"></script>
 <script>
@@ -72,7 +25,7 @@
     var mapContainer = document.getElementById('map'), // 지도를 표시할 div
         mapOption = {
             center: new kakao.maps.LatLng([[${avgLat}]], [[${avgLng}]]), // 지도의 중심좌표
-            level: 8 // 지도의 확대 레벨
+            level: [[${level}]] // 지도의 확대 레벨
         };
 
     var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
