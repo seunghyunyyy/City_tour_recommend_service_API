@@ -28,6 +28,7 @@
 9. [GET /api/v1/weather](https://github.com/seunghyunyyy/ssu_open_pj#get-apiv1weather--도시-날씨-정보-불러오기)
 10. [GET /api/v1/chat](https://github.com/seunghyunyyy/ssu_open_pj#get-apiv1chat--chat-gpt)
 11. [GET /api/v1/recommend](https://github.com/seunghyunyyy/ssu_open_pj#get-apiv1recommend--관광지-추천)
+12. [GET /api/vi/map](https://github.com/seunghyunyyy/ssu_open_pj#get-apivimap--지도에-관광지-마커-표시)
 ##
 ### POST /user/v1/signUP : 회원가입
   * Request Body JSON에 동일한 두 개의 비밀번호를 입력. 불일치 시 회원가입 실패.
@@ -248,4 +249,17 @@
         }
     ]
 }
+##
+### GET /api/vi/map : 지도에 관광지 마커 표시
+  * [한국관광공사_국문 관광정보 서비스_GW](https://www.data.go.kr/iim/api/selectAPIAcountView.do)를 통해 인자로 입력받은 city의 관광지 목록을 불러옴.
+  * [Chat GPT API](https://platform.openai.com)를 사용하여 불러온 관광지 목록과 사전에 입력한 prompt를 입력하여 인자로 입력받은 num 개수만큼 추천받음.
+  * [Korean-Romanizer](https://github.com/crizin/korean-romanizer)를 사용하여 인자로 입력받은 city의 로마자 표기법을 반환받은 후 [Weathermap-weather](https://openweathermap.org/price#weather)를 사용하여 도시의 날씨 정보를 가져옴.
+  * [Kakao Map API](https://apis.map.kakao.com)을 사용하여 추천받은 관광지를 카카오 지도에서 마커로 표시함.
+###
+    // Request Params 목록
+    String city;
+    Integer num;
+###
+    // 반환값
+    map.html
 ##
