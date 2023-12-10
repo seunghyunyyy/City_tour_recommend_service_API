@@ -12,9 +12,11 @@
 * [Chat GPT API](https://platform.openai.com) : 국내 관광지 데이터에서 추천해줄 Chat GPT API
 ##
 ### 개발 환경
-* JDK : 17
-* Spring Boot
-* IntelliJ IDEA
+* JDK : 17.0.8
+* Spring Boot 3.2.0
+* IntelliJ IDEA 2023.2.5 Ultimate Edition
+* MySQL 8.0.34 Community
+##
 
 ## REST-API
 1. [POST /user/v1/signUP](https://github.com/seunghyunyyy/ssu_open_pj#post-userv1signup--회원가입)
