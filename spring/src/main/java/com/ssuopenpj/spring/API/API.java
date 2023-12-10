@@ -43,6 +43,7 @@ public class API {
         weatherResult = parsWeatherJSON(getWeather(KoreanRomanizer.romanize(city)));
         searchResult = parseSearchKeywordJSON(getSearchKeyword(city, "1", "50"), params, city);
         //System.out.println(searchResult);
+        //System.out.println("api weather : " + weatherResult.toJSONString());
 
         for(int i = 0; i < searchResult.size(); i++) {
             JSONObject tmp = (JSONObject) searchResult.get(i);
@@ -111,6 +112,14 @@ public class API {
         for (int i = 0; i < item.size(); i++) {
             JSONObject tmpJsonObject = (JSONObject) item.get(i);
             JSONObject itemJson = new JSONObject();
+            if(Double.parseDouble(tmpJsonObject.get("mapx").toString()) < 124.6 || Double.parseDouble(tmpJsonObject.get("mapx").toString()) > 131.9) {
+                //System.out.println("mapx : " + tmpJsonObject.get("mapx").toString());
+                continue;
+            }
+            if(Double.parseDouble(tmpJsonObject.get("mapy").toString()) < 33.6 || Double.parseDouble(tmpJsonObject.get("mapy").toString()) > 38.6) {
+                //System.out.println("mapy : " + tmpJsonObject.get("mapy").toString());
+                continue;
+            }
             if (!tmpJsonObject.get("addr1").toString().contains(city)) {
                 //System.out.println(tmpJsonObject.get("addr1").toString());
                 continue;
@@ -131,6 +140,8 @@ public class API {
         String description = (String) tmp.get("description");
 
         result.put("description", description);
+
+        //System.out.println("parseWeater : " + result);
 
         return result;
     }
