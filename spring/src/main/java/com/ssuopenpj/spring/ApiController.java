@@ -12,6 +12,7 @@ import java.util.ArrayList;
 @Validated
 @RestController
 @RequiredArgsConstructor
+@RequestMapping(value = "/api/v1")
 public class ApiController {
     private final API api;
 
