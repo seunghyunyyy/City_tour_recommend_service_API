@@ -8,7 +8,6 @@ import java.net.URL;
 public class gpt {
     public static void main(String[] args) {
         System.out.println(chatGPT("where should I visit?"));
-        //질문에 대한 응답 출력
     }
 
     public static String chatGPT(String message) {
@@ -17,14 +16,12 @@ public class gpt {
         String model = "gpt-3.5-turbo"; //chatgpt api 현재 모델
 
         try {
-            // Create the HTTP POST request
             URL obj = new URL(url);
             HttpURLConnection con = (HttpURLConnection) obj.openConnection(); //웹페이지 URL 연결
             con.setRequestMethod("POST");
             con.setRequestProperty("Authorization", "Bearer " + apiKey);
             con.setRequestProperty("Content-Type", "application/json"); //Request body 전달시 application/json으로 서버에 전달
 
-            // Build the request body
             String body = "{\"model\": \"" + model + "\", \"messages\": [{\"role\": \"user\", \"content\": \"" + message + "\"에서 방문할 만한 장소를 추천해줘. }]}";
             con.setDoOutput(true); //outputstream으로 post를 넘겨줌
             OutputStreamWriter writer = new OutputStreamWriter(con.getOutputStream());
@@ -32,7 +29,6 @@ public class gpt {
             writer.flush(); //request body에 data 입력
             writer.close(); //outputstream 종료
 
-            // Get the response
             BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
             String inputLine;
             StringBuffer response = new StringBuffer();
